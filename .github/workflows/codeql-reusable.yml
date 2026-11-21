@@ -28,6 +28,10 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Setup MSBuild
+        if: inputs.build-command != ''
+        uses: microsoft/setup-msbuild@6fb02220983dee41ce7ae257b6f4d8f9bf5ed4ce # v2
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@9418214df1f2c4b8128c770156c409013b07d6b9 # v3
         with:
